@@ -1,0 +1,75 @@
+.prefile-top{
+  padding: 20px;
+  display: flex;
+  box-sizing: border-box;
+}
+.login-img{
+  width: 80px;
+  height: 80px;
+  display: block;
+  border-radius: 50%;
+  background-size: 150px;
+  background-position: center center;
+}
+.pre-login{
+  width: 0;
+  height: 0;
+  outline: 0;
+}
+.prefile-user{
+  flex-grow: 1;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+}
+.prefile-user span{
+  color:#fff;
+}
+.prefile-username{
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.prefile-userslog{
+  opacity: 0.8;
+  font-size: 15px;
+  display: block;
+}
+.disappear{
+  display: none;
+}
+
+.prefile-userslog-two{
+  opacity: 0.8;
+  position: absolute;
+  top:45px;
+  left:10px;
+  display: none;
+}
+.prefile-userslog-two input{
+  background-color: rgba(0,0,0,0);
+  outline: 0;
+  border:0;
+  border-bottom: 1px solid rgba(255,255,255,0.8);
+  color: #fff;
+  font-size: 15px;
+}
+.prefile-userslog-two input:focus{
+  border-bottom: 1px solid rgba(255,255,255,0.8);
+}
+.prefile-btn{
+  background-color: rgba(0,0,0,0);
+  border:0;
+  color: #fff;
+  outline: 0;
+}
+.show{
+  display: block;
+}
+.prefile-editor{
+  padding: 25px 10px;
+}
+.prefile-lists{
+  min-height: 424px;
+  background-color: #F9FAFB;
+}
