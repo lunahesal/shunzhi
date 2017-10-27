@@ -49,9 +49,11 @@ const initState = {
 }
 export default function userReducer(state=initState,action){
   switch(action.type){
-
     case 'LOGIN':
       return {...state,all:action.users}
+    case 'ADD_USER':
+      const newAll = [...state.all,action.newUser]
+      return {...state,all:newAll}
     case 'ADD_FRIEND':
       return {...state,isFrind:'已是好友'}
       default:

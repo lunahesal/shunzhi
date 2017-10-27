@@ -3,6 +3,7 @@ import './signup-form.css'
 import axios from 'axios'
 import store from '../../redux/store'
 import { withRouter } from 'react-router-dom'
+import shortid from 'shortid'
 import { Form, Input,  message} from 'antd';
 const FormItem = Form.Item
 
@@ -20,16 +21,13 @@ class SignupForm extends Component {
     if(unFilled.length === 0 ){
       const allData = { ...data,
         url:'http://media.haoduoshipin.com/yummy/default-avatar.png',
-        slogn:'还没填写个性签名'
+        slogn:'还没填写个性签名',
+        id:shortid.generate()
       }
-      axios.post('http://localhost:3008/users', allData).then(res=>{
-        console.log(res.data)
-        const user = res.data
-        window.localStorage.setItem('userId', user.id)
-        this.props.history.push('/news')
-        store.dispatch({type:'ACTIVEUSER',user})
-        console.log('SIGNUP 之后', store.getState())
-      })
+      store.dispatch({type:'ADD_USER',newUser:allData})
+      window.localStorage.setItem('userId', allData.id)
+      this.props.history.push('/news')
+      store.dispatch({type:'ACTIVEUSER',user:allData})
     }else{
       message.error('请填写全部信息')
     }
