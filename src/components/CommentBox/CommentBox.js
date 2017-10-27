@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './comment-box.css'
 import store from '../../redux/store'
 import axios from 'axios'
+import shortid from 'shortid'
 
 class CommentBox extends Component {
   state = {
@@ -18,15 +19,14 @@ class CommentBox extends Component {
     const currentUser = store.getState().activeuser
     if(!currentUser.userName) return
     const { url, userName } = currentUser
-    axios.post('http://localhost:3008/comments',{ text,url,userName,goodsId }).then(res => {
-      const { text, url, userName, goodsId, id } = res.data
-      store.dispatch({ type:'ADD_COMMENT',
-        text:text,url:url,
-        userName:userName,
-        goodsId:goodsId,
-        id:id
-      })
+    store.dispatch({ type:'ADD_COMMENT',
+      text:text,
+      url:url,
+      userName:userName,
+      goodsId:goodsId,
+      id:shortid.generate()
     })
+
     this.setState({
       comment:''
     })
